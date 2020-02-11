@@ -15,10 +15,8 @@ try {
             $result = $usrCls->doLogin();
             break;
     }*/
-    echo json_encode($result);
-    exit();
+    exit(json_encode($result));
 }
 catch (Exception $e) {
     echo '{failure: true}';
 }
-?>

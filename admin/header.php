@@ -1,7 +1,9 @@
 <?php
-define('ROOT_PATH', dirname(__FILE__));
-if (!defined('ADODB_DIR')) define('ADODB_DIR',dirname(__FILE__).'/adodb5');
-require_once ROOT_PATH.'/include/config.php' ;
+define('ROOT_PATH', dirname(__DIR__)); //dirname(__FILE__)
+define('ADMIN_PATH', dirname(__FILE__));
+$vendorName = "adodb/adodb-php"; //adodb5
+if (!defined('ADODB_DIR')) define('ADODB_DIR', ROOT_PATH.'/vendor/'.$vendorName);
+require_once ADMIN_PATH.'/include/config.php' ;
 session_name(EW_APP_SESSION);
 session_start();
 
@@ -51,9 +53,9 @@ if(empty($_SESSION["user_id"]) && $extlogin==0){
     }
 }*/
 
-require_once ROOT_PATH.'/adodb5/adodb.inc.php';
-require_once ROOT_PATH.'/include/functions.php';
-require_once ROOT_PATH.'/include/security.php';
+require_once ADODB_DIR.'/adodb.inc.php';
+require_once ADMIN_PATH.'/include/functions.php';
+require_once ADMIN_PATH.'/include/security.php';
 global $ADODB_FORCE_TYPE, $ADODB_FETCH_MODE;
 if(isset($_REQUEST['fetch']) && @$_REQUEST['fetch']==1) $ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
 
@@ -79,11 +81,11 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
 $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "undefined";
-$isIE = (ereg("MSIE", $user_agent)) ? true : false;
-if($isIE){
+//$isIE = (ereg("MSIE", $user_agent)) ? true : false;
+$isIE = !!preg_match('/MSIE (6|7|8)/', $_SERVER['HTTP_USER_AGENT']);
+if ($isIE) {
     header('Cache-Control: maxage=3600');
     header('Pragma: public');
 }
 header("Expires: 0");
 
-?>

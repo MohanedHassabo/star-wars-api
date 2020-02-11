@@ -104,15 +104,14 @@ class Security
     function &ew_Connect()
     {
         try {
-            $object =& ADONewConnection("mysqli");
-
-            $object->debug = FALSE;
-            $object->port = EW_CONN_PORT;
-            $object->PConnect(EW_CONN_HOST, EW_CONN_USER, EW_CONN_PASS, EW_CONN_DB);
-            if (!$object->isConnected()){
+            $db = NewADOConnection('mysqli'); //&NewADOConnection('mysqli')
+            $db->debug = FALSE;
+            $db->port = EW_CONN_PORT;
+            $db->PConnect(EW_CONN_HOST, EW_CONN_USER, EW_CONN_PASS, EW_CONN_DB);
+            if (!$db->isConnected()){
                 header("HTTP/1.0 503 Service Unavailable");
             }
-            return $object;
+            return $db;
         }catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -127,4 +126,3 @@ class Security
         return $object;
     }*/
 }
-?>

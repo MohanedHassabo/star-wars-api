@@ -12,4 +12,3 @@ class Users
         //$this->usrDspName = isset($_SESSION['user_dspname']) ? $_SESSION['user_dspname'] : "";
     }
 }
-?>

@@ -92,5 +92,3 @@ class MoviesCls
         return $question;
     }
 }
-
-?>

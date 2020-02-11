@@ -38,5 +38,3 @@ catch (Exception $e) {
     echo '{failure: true}';
 }
 
-?>
-

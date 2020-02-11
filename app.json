@@ -1,0 +1,6 @@
+{
+  "name": "Star Wars Api: PHP",
+  "description": "A PHP web api to be consumed by Star Wars App, which can easily be deployed to server along with Star Wars App which is already available on https://github.com/MohanedHassabo/star-wars-app.",
+  "repository": "https://github.com/MohanedHassabo/star-wars-api",
+  "addons": []
+}

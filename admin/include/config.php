@@ -1,6 +1,5 @@
 <?php
 //DB Config
-
 define("EW_CONN_HOST", "recruitment-test-mysql.caqylurhpyhw.eu-west-1.rds.amazonaws.com", TRUE); //Default Connection
 define("EW_CONN_PORT", 3306, TRUE);
 define("EW_CONN_USER", "candidate", TRUE);
@@ -27,5 +26,3 @@ define("EW_SESSION_STATUS", EW_PROJECT_NAME . "_status", TRUE);
 define("EW_APP_SESSION", "MyStarWarsApp", TRUE);
 define("EW_APP_LOGIN_SESSION", EW_APP_SESSION."-LOGIN", TRUE);
 define("EW_APP_PATH", dirname($_SERVER["DOCUMENT_ROOT"])."/");
-
-?>

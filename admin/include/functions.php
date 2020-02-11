@@ -104,5 +104,3 @@ function ew_ValueSeparator($rowcnt)
 {
     return ", ";
 }
-
-?>
